@@ -17,7 +17,7 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../lib/redux/store';
+import { AppDispatch, RootState } from '../../lib/redux/store';
 import { logout } from '../../lib/redux/slices/authSlice';
 import { toggleSidebar } from '../../lib/redux/slices/uiSlice';
 
@@ -28,7 +28,7 @@ interface AppLayoutProps {
 }
 
 export default function AppLayout({ children }: AppLayoutProps) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
   const pathname = usePathname();
   
@@ -102,7 +102,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   // User dropdown menu
-  const userMenu = {
+  const userMenu :any= {
     items: [
       {
         key: 'profile',
